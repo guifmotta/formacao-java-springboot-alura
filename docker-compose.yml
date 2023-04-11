@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+
+  mysql:
+    image: docker.io/mysql:8.0
+    restart: always
+    ports:
+      - "3306:3306"
+    expose:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      
+  phpmyadmin:
+    image: docker.io/phpmyadmin:5.2
+    restart: always
+    environment:
+      - PMA_ARBITRARY=1
+    ports:
+      - "8081:80"
